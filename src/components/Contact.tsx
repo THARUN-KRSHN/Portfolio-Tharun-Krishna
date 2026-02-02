@@ -1,0 +1,59 @@
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "./ui/Button";
+
+export const Contact = () => {
+    return (
+        <section className="py-32 px-6 md:px-20 bg-accent text-accent-foreground relative overflow-hidden">
+            <div className="max-w-4xl mx-auto text-center">
+                <motion.h2
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    className="text-5xl md:text-8xl font-display font-bold mb-8 leading-[0.9]"
+                >
+                    Let’s Build <br /> Something Visual
+                </motion.h2>
+
+                <p className="text-xl md:text-2xl mb-12 opacity-80 max-w-2xl mx-auto">
+                    Have a project in mind? Looking for a design partner who cares about the details? Let's chat.
+                </p>
+
+                <form className="max-w-xl mx-auto space-y-4 text-left">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            className="w-full bg-black/5 hover:bg-black/10 transition-colors border-none rounded-2xl px-6 py-4 placeholder:text-accent-foreground/50 focus:outline-none focus:ring-2 focus:ring-black/20"
+                        />
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            className="w-full bg-black/5 hover:bg-black/10 transition-colors border-none rounded-2xl px-6 py-4 placeholder:text-accent-foreground/50 focus:outline-none focus:ring-2 focus:ring-black/20"
+                        />
+                    </div>
+                    <textarea
+                        rows={4}
+                        placeholder="Tell me about your project..."
+                        className="w-full bg-black/5 hover:bg-black/10 transition-colors border-none rounded-2xl px-6 py-4 placeholder:text-accent-foreground/50 focus:outline-none focus:ring-2 focus:ring-black/20"
+                    />
+
+                    <Button size="lg" className="w-full rounded-2xl bg-black text-white hover:bg-black/80 h-14 text-lg">
+                        Send Message
+                    </Button>
+                </form>
+
+                <div className="mt-20 flex flex-col md:flex-row justify-between items-center pt-10 border-t border-black/10">
+                    <div className="flex gap-8 text-lg font-medium">
+                        <a href="#" className="hover:underline">LinkedIn</a>
+                        <a href="#" className="hover:underline">Behance</a>
+                        <a href="#" className="hover:underline">Instagram</a>
+                    </div>
+                    <div className="mt-8 md:mt-0 text-sm opacity-50">
+                        &copy; 2026 Tharun Krishna. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
