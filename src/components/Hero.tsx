@@ -1,102 +1,115 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
-import { ArrowDown, Code2, Palette } from "lucide-react";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 
 export const Hero = () => {
-    const { scrollY } = useScroll();
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
 
-    // Parallax & Scroll Transforms
-    const yLeft = useTransform(scrollY, [0, 500], [0, 100]);
-    const yRight = useTransform(scrollY, [0, 500], [0, -100]);
+    // 3D Transforms for the Laptop
+    const rotateX = useTransform(scrollYProgress, [0, 0.4], [50, 0]); // Tilts up
+    const scale = useTransform(scrollYProgress, [0, 0.4], [0.8, 1.2]); // Grows slightly
+    const y = useTransform(scrollYProgress, [0, 0.4], [100, 0]); // Moves up effectively
+    const opacity = useTransform(scrollYProgress, [0, 0.2], [0.8, 1]); // Fades in fully
 
-    // Mouse Parallax Logic
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
+    // Text Parallax
+    const textY = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
 
-    const handleMouseMove = (e: React.MouseEvent) => {
-        const { clientX, clientY } = e;
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
-        mouseX.set((clientX - centerX) / 50);
-        mouseY.set((clientY - centerY) / 50);
-    };
+    // Time for the footer
+    const [time, setTime] = useState("");
 
-    const springConfig = { damping: 25, stiffness: 100 };
-    const springX = useSpring(mouseX, springConfig);
-    const springY = useSpring(mouseY, springConfig);
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date();
+            setTime(now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', timeZoneName: 'short' }));
+        };
+        updateTime();
+        const interval = setInterval(updateTime, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
-        <section
-            onMouseMove={handleMouseMove}
-            className="relative h-screen w-full flex flex-col md:flex-row overflow-hidden bg-background"
-        >
-            {/* --- Left Split: Design Core --- */}
-            <div className="relative w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center px-8 md:px-20 border-b md:border-b-0 md:border-r border-border/50 group">
-                <div className="absolute inset-0 bg-stone-50/5 dark:bg-zinc-900/20 -z-10" />
+        <section ref={containerRef} className="relative h-[250vh] bg-background">
+            <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden [perspective:1000px]">
 
-                {/* Ambient Blur Logic for Design */}
+                {/* --- BACKGROUND TYPOGRAPHY --- */}
                 <motion.div
-                    style={{ x: springX, y: springY }}
-                    className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] opacity-60"
-                />
+                    style={{ y: textY }}
+                    className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none select-none"
+                >
+                    <h1 className="text-[18vw] leading-[0.8] font-black font-display text-center uppercase text-foreground opacity-10 dark:opacity-20 dark:mix-blend-difference tracking-tighter">
+                        Sites That
+                    </h1>
+                    <h1 className="text-[18vw] leading-[0.8] font-black font-display text-center uppercase text-foreground opacity-10 dark:opacity-20 dark:mix-blend-difference tracking-tighter">
+                        Move
+                    </h1>
+                </motion.div>
 
-                <motion.div style={{ y: yLeft }} className="z-10">
-                    <div className="flex items-center gap-3 mb-6 text-muted-foreground">
-                        <Palette className="w-5 h-5" />
-                        <span className="font-display tracking-widest uppercase text-sm">Visual Core</span>
+                {/* --- 3D LAPTOP CONTAINER --- */}
+                <motion.div
+                    style={{ rotateX, scale, y, opacity }}
+                    className="relative z-10 w-[80vw] md:w-[60vw] aspect-[16/10] bg-[#111] rounded-[2rem] p-2 md:p-4 shadow-2xl ring-1 ring-white/10"
+                >
+                    {/* Laptop Lid/Bezel */}
+                    <div className="relative w-full h-full bg-black rounded-[1.5rem] overflow-hidden border border-white/5">
+                        {/* Camera Dot */}
+                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white/20 z-20"></div>
+
+                        {/* Screen Content - Demo Video */}
+                        <video
+                            src="/images/ui_demo.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                        />
+
+                        {/* Reflexion/Gloss Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                     </div>
 
-                    <h1 className="font-display text-6xl md:text-8xl font-bold leading-[0.9] text-foreground mix-blend-difference mb-6">
-                        Visual <br />
-                        <span className="italic font-serif font-light text-muted-foreground">Storyteller</span>
-                    </h1>
-
-                    <p className="max-w-md text-lg text-muted-foreground/80 leading-relaxed">
-                        Crafting brand identities and digital experiences that feel crafted, deliberate, and undeniably human.
-                    </p>
+                    {/* Laptop Base (Suggestions of hinge/depth) */}
+                    <div className="absolute -bottom-4 left-[10%] right-[10%] h-4 bg-[#222] rounded-b-xl -z-10 shadow-xl"></div>
                 </motion.div>
-            </div>
 
-            {/* --- Right Split: Technical Core --- */}
-            <div className="relative w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center px-8 md:px-20 bg-grid-pattern group">
-                {/* Tech Grid Overlay */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
-
-                <motion.div
-                    style={{ x: springX, y: springY }}
-                    className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-emerald-500/10 rounded-full blur-[100px] opacity-60"
-                />
-
-                <motion.div style={{ y: yRight }} className="z-10 text-right md:text-left pl-0 md:pl-12">
-                    <div className="flex items-center justify-end md:justify-start gap-3 mb-6 text-muted-foreground">
-                        <Code2 className="w-5 h-5" />
-                        <span className="font-mono tracking-widest uppercase text-sm">Logic Core</span>
+                {/* --- FOOTER INFO (Absolute Bottom) --- */}
+                <div className="absolute bottom-8 left-0 w-full px-6 md:px-12 flex justify-between items-end text-xs md:text-sm font-mono text-muted-foreground z-20">
+                    <div className="flex flex-col gap-1">
+                        <span className="uppercase tracking-widest opacity-60">Design By</span>
+                        <span className="font-bold text-foreground">Tharun Krishna</span>
                     </div>
 
-                    <h1 className="font-sans text-6xl md:text-8xl font-bold leading-[0.9] text-foreground mb-6 tracking-tighter">
-                        Creative <br />
-                        <span className="font-mono font-normal text-emerald-500/80 dark:text-emerald-400">Technologist</span>
-                    </h1>
+                    <div className="hidden md:flex flex-col gap-1 text-center">
+                        <span className="uppercase tracking-widest opacity-60">Local Time</span>
+                        <span className="font-bold text-foreground">{time}</span>
+                    </div>
 
-                    <p className="max-w-md ml-auto md:ml-0 text-lg text-muted-foreground/80 leading-relaxed font-mono text-sm md:text-base">
-                        &lt;Engineering&gt;<br />
-                        Building scalable, performant, and accessible web architecture with precision.<br />
-                        &lt;/Engineering&gt;
-                    </p>
+                    <div className="flex flex-col gap-1 text-right max-w-[200px]">
+                        <span className="uppercase tracking-widest opacity-60">Mission</span>
+                        <span className="text-foreground leading-tight">
+                            Crafting experience-driven websites for brands that move with purpose.
+                        </span>
+                    </div>
+                </div>
+
+                {/* --- SCROLL INDICATOR --- */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, y: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 2 }}
+                    className="absolute bottom-24 left-1/2 -translate-x-1/2 text-muted-foreground z-20"
+                >
+                    <div className="flex flex-col items-center gap-2">
+                        <span className="text-[10px] uppercase tracking-[0.2em]">Scroll to Open</span>
+                        <ArrowDown className="w-4 h-4" />
+                    </div>
                 </motion.div>
             </div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/40 mix-blend-difference z-20"
-            >
-                <div className="h-12 w-[1px] bg-current mb-2" />
-                <span className="text-[10px] tracking-[0.2em] uppercase font-mono">Explore</span>
-            </motion.div>
         </section>
     );
 };

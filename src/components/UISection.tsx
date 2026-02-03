@@ -37,10 +37,10 @@ export const UISection = () => {
     if (projects.length === 0) return null;
 
     return (
-        <section className="py-24 px-6 md:px-20 bg-zinc-950 text-white overflow-hidden">
+        <section className="py-24 px-6 md:px-20 bg-background text-foreground overflow-hidden">
             <div className="mb-16">
                 <h3 className="text-4xl md:text-5xl font-display mb-4">Selected Projects</h3>
-                <p className="text-zinc-400 max-w-xl">
+                <p className="text-muted-foreground max-w-xl">
                     High-impact frontend applications, design systems, and technical solutions.
                 </p>
             </div>
@@ -52,16 +52,16 @@ export const UISection = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="relative w-full max-w-5xl rounded-xl overflow-hidden shadow-2xl bg-zinc-900 border border-zinc-800"
+                    className="relative w-full max-w-5xl rounded-xl overflow-hidden shadow-2xl bg-secondary border border-border"
                 >
                     {/* Browser Header for Video */}
-                    <div className="h-10 bg-zinc-900/90 backdrop-blur border-b border-zinc-800 flex items-center px-4 gap-2">
+                    <div className="h-10 bg-secondary/90 backdrop-blur border-b border-border flex items-center px-4 gap-2">
                         <div className="flex gap-2">
-                            <div className="w-3 h-3 rounded-full bg-red-500/20" />
-                            <div className="w-3 h-3 rounded-full bg-yellow-500/20" />
-                            <div className="w-3 h-3 rounded-full bg-green-500/20" />
+                            <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+                            <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+                            <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
                         </div>
-                        <div className="mx-auto px-4 py-1 bg-zinc-800 rounded-md text-[10px] text-zinc-500 font-mono">
+                        <div className="mx-auto px-4 py-1 bg-muted rounded-md text-[10px] text-muted-foreground font-mono">
                             demo.mp4
                         </div>
                     </div>
@@ -81,8 +81,8 @@ export const UISection = () => {
                         viewport={{ once: true }}
                         className="group"
                     >
-                        <div className="relative rounded-xl overflow-hidden shadow-xl bg-zinc-900 border border-zinc-800">
-                            <div className={`aspect-[16/9] w-full overflow-hidden relative ${project.color || 'bg-zinc-800'}`}>
+                        <div className="relative rounded-xl overflow-hidden shadow-xl bg-secondary border border-border">
+                            <div className={`aspect-[16/9] w-full overflow-hidden relative bg-secondary`}>
                                 <img
                                     src={project.thumbnail}
                                     alt={project.title}
@@ -91,7 +91,7 @@ export const UISection = () => {
                             </div>
                             <div className="p-6">
                                 <h4 className="text-xl font-bold mb-1">{project.title}</h4>
-                                <p className="text-sm text-zinc-400">{project.tags.join(" • ")}</p>
+                                <p className="text-sm text-muted-foreground">{project.tags.join(" • ")}</p>
                             </div>
                         </div>
                     </motion.div>

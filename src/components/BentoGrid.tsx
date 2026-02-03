@@ -65,12 +65,12 @@ export const BentoGrid = ({ projects }: BentoGridProps) => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                     viewport={{ once: true }}
-                    className="md:col-span-2 md:row-span-1 relative rounded-2xl overflow-hidden group bg-zinc-100"
+                    className="md:col-span-2 md:row-span-1 relative rounded-2xl overflow-hidden group bg-secondary"
                 >
                     <div className="w-full h-full grid grid-cols-2">
                         <div className="p-6 flex flex-col justify-center">
-                            <h4 className="text-xl font-bold mb-2 text-black">{bentoItems[3].title}</h4>
-                            <p className="text-sm text-zinc-600">{bentoItems[3].tags.join(", ")}</p>
+                            <h4 className="text-xl font-bold mb-2 text-foreground">{bentoItems[3].title}</h4>
+                            <p className="text-sm text-muted-foreground">{bentoItems[3].tags.join(", ")}</p>
                         </div>
                         <div className="overflow-hidden h-full">
                             <img src={bentoItems[3].thumbnail} alt={bentoItems[3].title} className="w-full h-full object-cover" />
@@ -91,7 +91,7 @@ export const BentoGrid = ({ projects }: BentoGridProps) => {
                     {/* Zoomed in effect CSS */}
                     <img src={bentoItems[4].thumbnail} alt={bentoItems[4].title} className="w-full h-full object-cover scale-150 transition-transform duration-700 group-hover:scale-125" />
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <span className="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-black">Detail</span>
+                        <span className="bg-accent/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-accent-foreground">Detail</span>
                     </div>
                 </motion.div>
             )}

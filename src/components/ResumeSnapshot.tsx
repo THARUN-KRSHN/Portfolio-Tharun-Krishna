@@ -19,7 +19,7 @@ const BentoItem = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-        className={`bg-zinc-100 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 relative overflow-hidden group hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors ${className}`}
+        className={`bg-secondary border border-border rounded-3xl p-6 relative overflow-hidden group hover:border-accent/50 transition-colors ${className}`}
     >
         {children}
     </motion.div>
@@ -43,7 +43,7 @@ export const ResumeSnapshot = () => {
                     <BentoItem className="col-span-1 md:col-span-8 md:row-span-2 flex flex-col justify-between min-h-[400px]">
                         <div>
                             <div className="flex items-center gap-2 mb-4">
-                                <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono uppercase tracking-wider">
+                                <span className="px-3 py-1 rounded-full bg-accent/10 text-accent-foreground text-xs font-mono uppercase tracking-wider">
                                     Current Role
                                 </span>
                             </div>
@@ -63,7 +63,7 @@ export const ResumeSnapshot = () => {
                     {/* --- MEDIUM CARD: Leadership --- */}
                     <BentoItem className="col-span-1 md:col-span-4 md:row-span-1" delay={0.1}>
                         <div className="h-full flex flex-col justify-between">
-                            <div className="w-10 h-10 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4">
+                            <div className="w-10 h-10 rounded-full bg-accent/10 text-accent-foreground flex items-center justify-center mb-4">
                                 <Cpu className="w-5 h-5" />
                             </div>
                             <div>
@@ -78,7 +78,7 @@ export const ResumeSnapshot = () => {
                         <h4 className="text-sm font-mono uppercase tracking-wider text-muted-foreground mb-4">Core Stack</h4>
                         <div className="flex flex-wrap gap-2">
                             {["Next.js", "React", "Tailwind", "Framer", "Java", "Python"].map((tech) => (
-                                <span key={tech} className="px-2 py-1 bg-white dark:bg-zinc-800 rounded text-xs font-medium">
+                                <span key={tech} className="px-2 py-1 bg-background rounded text-xs font-medium">
                                     {tech}
                                 </span>
                             ))}
@@ -95,13 +95,13 @@ export const ResumeSnapshot = () => {
                             <Layers className="w-5 h-5 text-muted-foreground" />
                         </div>
                         <div className="mt-6 flex items-center gap-2 text-xs font-mono text-muted-foreground">
-                            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+                            <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                             In Development
                         </div>
                     </BentoItem>
 
                     {/* --- WIDE CARD: Key Project 2 --- */}
-                    <BentoItem className="col-span-1 md:col-span-6 md:row-span-1 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black" delay={0.4}>
+                    <BentoItem className="col-span-1 md:col-span-6 md:row-span-1 bg-secondary text-foreground" delay={0.4}>
                         <div className="flex justify-between items-start">
                             <div>
                                 <h4 className="font-bold text-xl mb-1">UAAT MVP</h4>
@@ -121,11 +121,11 @@ export const ResumeSnapshot = () => {
                             <p className="text-sm text-muted-foreground mb-6">
                                 Obsessed with tokenization, component libraries, and pixel-perfect implementation.
                             </p>
-                            <div className="flex-1 rounded-xl bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-900 p-4 border border-zinc-500/10">
+                            <div className="flex-1 rounded-xl bg-gradient-to-br from-secondary to-muted p-4 border border-border">
                                 <div className="space-y-2">
                                     <div className="h-2 w-1/2 bg-zinc-400/50 rounded"></div>
                                     <div className="h-2 w-3/4 bg-zinc-400/50 rounded"></div>
-                                    <div className="h-8 w-full bg-blue-500/20 rounded mt-4"></div>
+                                    <div className="h-8 w-full bg-accent/20 rounded mt-4"></div>
                                 </div>
                             </div>
                         </div>
@@ -142,10 +142,10 @@ export const ResumeSnapshot = () => {
                     </BentoItem>
 
                     {/* --- CTA CARD --- */}
-                    <BentoItem className="col-span-1 md:col-span-4 md:row-span-1 bg-emerald-500/10 border-emerald-500/20" delay={0.7}>
+                    <BentoItem className="col-span-1 md:col-span-4 md:row-span-1 bg-accent/10 border-accent/20" delay={0.7}>
                         <div className="h-full flex flex-col justify-center items-center text-center">
-                            <h4 className="font-bold text-lg text-emerald-700 dark:text-emerald-400 mb-2">Open for roles</h4>
-                            <p className="text-xs text-emerald-600/80 dark:text-emerald-300/80">
+                            <h4 className="font-bold text-lg text-accent-foreground mb-2">Open for roles</h4>
+                            <p className="text-xs text-muted-foreground">
                                 Frontend / Fullstack
                             </p>
                         </div>

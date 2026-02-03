@@ -5,7 +5,7 @@ import { Button } from "./ui/Button";
 
 export const Contact = () => {
     return (
-        <section className="py-32 px-6 md:px-20 bg-accent text-accent-foreground relative overflow-hidden">
+        <section className="py-32 px-6 md:px-20 bg-background text-foreground relative overflow-hidden">
             <div className="max-w-4xl mx-auto text-center">
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
@@ -24,26 +24,26 @@ export const Contact = () => {
                         <input
                             type="text"
                             placeholder="Name"
-                            className="w-full bg-black/5 hover:bg-black/10 transition-colors border-none rounded-2xl px-6 py-4 placeholder:text-accent-foreground/50 focus:outline-none focus:ring-2 focus:ring-black/20"
+                            className="w-full bg-secondary hover:bg-muted transition-colors border-none rounded-2xl px-6 py-4 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                         />
                         <input
                             type="email"
                             placeholder="Email"
-                            className="w-full bg-black/5 hover:bg-black/10 transition-colors border-none rounded-2xl px-6 py-4 placeholder:text-accent-foreground/50 focus:outline-none focus:ring-2 focus:ring-black/20"
+                            className="w-full bg-secondary hover:bg-muted transition-colors border-none rounded-2xl px-6 py-4 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                         />
                     </div>
                     <textarea
                         rows={4}
                         placeholder="Tell me about your project..."
-                        className="w-full bg-black/5 hover:bg-black/10 transition-colors border-none rounded-2xl px-6 py-4 placeholder:text-accent-foreground/50 focus:outline-none focus:ring-2 focus:ring-black/20"
+                        className="w-full bg-secondary hover:bg-muted transition-colors border-none rounded-2xl px-6 py-4 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                     />
 
-                    <Button size="lg" className="w-full rounded-2xl bg-black text-white hover:bg-black/80 h-14 text-lg">
+                    <Button size="lg" className="w-full rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 h-14 text-lg">
                         Send Message
                     </Button>
                 </form>
 
-                <div className="mt-20 flex flex-col md:flex-row justify-between items-center pt-10 border-t border-black/10">
+                <div className="mt-20 flex flex-col md:flex-row justify-between items-center pt-10 border-t border-border">
                     <div className="flex gap-8 text-lg font-medium">
                         <a href="#" className="hover:underline">LinkedIn</a>
                         <a href="#" className="hover:underline">Behance</a>

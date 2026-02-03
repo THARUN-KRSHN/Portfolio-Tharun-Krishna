@@ -2,26 +2,35 @@ import { Hero } from "@/components/Hero";
 import { ResumeSnapshot } from "@/components/ResumeSnapshot";
 import { SectionHeader } from "@/components/SectionHeader";
 import { FeaturedLogos } from "@/components/FeaturedLogos";
+import { VisualNarrative } from "@/components/VisualNarrative";
 import { DesignWorks } from "@/components/DesignWorks";
 import { Contact } from "@/components/Contact";
 import { FrontendLab } from "@/components/FrontendLab";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { AboutSection } from "@/components/AboutSection";
+import { FallingSkills } from "@/components/FallingSkills";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground antialiased selection:bg-accent selection:text-accent-foreground">
       <Hero />
-      <ResumeSnapshot />
+      <AboutSection />
+      <FallingSkills />
 
       {/* Logo Section */}
-      <SectionHeader title="Logo Folio" subtitle="Curated Brand Identities" theme="dark" />
-      <FeaturedLogos />
+      <div id="featured-logos">
+        <FeaturedLogos />
+      </div>
 
-      {/* Heroic Poster Scroll */}
-      <DesignWorks categories={["poster"]} />
+      {/* Visual Narrative Section */}
+      <div id="visual-narrative">
+        <VisualNarrative />
+      </div>
 
       {/* Technical Lab */}
-      <FrontendLab />
+      <div id="frontend-lab">
+        <FrontendLab />
+      </div>
 
       {/* Experience Timeline */}
       <ExperienceTimeline />

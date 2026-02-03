@@ -3,6 +3,7 @@ import { Outfit, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SmoothScrolling } from "@/components/SmoothScrolling";
+import { Header } from "@/components/Header";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -37,8 +38,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <SmoothScrolling>
+            <Header />
             {children}
           </SmoothScrolling>
         </ThemeProvider>
