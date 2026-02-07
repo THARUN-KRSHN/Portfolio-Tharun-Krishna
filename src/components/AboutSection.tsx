@@ -116,17 +116,19 @@ export const AboutSection = () => {
                     >
                         {/* Placeholder for user portrait */}
                         <img
-                            src="https://placehold.co/600x800/111/444.png?text=Portrait"
+                            src="/images/profile.jpeg"
                             alt="Tharun Krishna"
                             className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                         />
 
                         {/* More About Me Button Overlay */}
                         <div className="absolute bottom-4 left-4">
-                            <Button variant="ghost" size="sm" className="bg-black/50 text-white hover:bg-black uppercase text-xs tracking-widest backdrop-blur-md border-none">
-                                <span className="w-1.5 h-1.5 rounded-full bg-primary mr-2 animate-pulse" />
-                                More About Me
-                            </Button>
+                            <a href="/resume/Resume-Tharun Krishna C U.pdf" target="_blank" rel="noopener noreferrer">
+                                <Button variant="ghost" size="sm" className="bg-black/50 text-white hover:bg-black uppercase text-xs tracking-widest backdrop-blur-md border-none">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mr-2 animate-pulse" />
+                                    More About Me
+                                </Button>
+                            </a>
                         </div>
                     </motion.div>
 
@@ -163,9 +165,9 @@ export const AboutSection = () => {
             {/* --- Project Showcase Extension --- */}
             <div className="relative z-10 w-full px-6 md:px-20 flex flex-col gap-32">
                 {[
-                    { title: "Graphic Design", type: "Poster", image: "https://placehold.co/600x800/222/fff.png?text=Poster+1", ratio: "aspect-[3/4]", align: "end" },
-                    { title: "Development", type: "Web App", image: "https://placehold.co/1200x800/222/fff.png?text=Web+App", ratio: "aspect-[16/10]", align: "start" },
-                    { title: "Graphic Design", type: "Identity", image: "https://placehold.co/600x800/222/fff.png?text=Identity", ratio: "aspect-[3/4]", align: "end" }
+                    { title: "Graphic Design", type: "Poster", image: "/images/poster1.png", ratio: "aspect-[3/4]", align: "end" },
+                    { title: "Development", type: "Web App", image: "/images/webapp.png", ratio: "aspect-[16/10]", align: "start" },
+                    { title: "Graphic Design", type: "Identity", image: "/images/identity.png", ratio: "aspect-[3/4]", align: "end" }
                 ].map((item, idx) => (
                     <motion.div
                         key={idx}

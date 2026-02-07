@@ -10,7 +10,8 @@ export const Header = () => {
         { label: "Work", id: "visual-narrative" }, // VisualNarrative section
         { label: "Logos", id: "featured-logos" }, // FeaturedLogos orbit
         { label: "Services", id: "services" },
-        { label: "Lab", id: "frontend-lab" }
+        { label: "Lab", id: "frontend-lab" },
+        { label: "Contact", id: "contact" }
     ];
 
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -63,17 +64,9 @@ export const Header = () => {
                 ))}
             </nav>
 
-            {/* Contact Button (Desktop) */}
+            {/* Contact Button Removed - Added to Nav List */}
             <div className="hidden md:flex">
-                <button
-                    onClick={() => scrollToSection("contact")}
-                    className="flex items-center gap-2 px-6 py-2 rounded-full border border-primary/20 bg-primary/5 hover:bg-primary/10 transition-colors group"
-                >
-                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    <span className="font-mono text-xs uppercase tracking-widest text-primary">
-                        Contact
-                    </span>
-                </button>
+                {/* Placeholder to keep layout spacing if needed, or just remove */}
             </div>
 
             {/* Mobile Menu Toggle */}

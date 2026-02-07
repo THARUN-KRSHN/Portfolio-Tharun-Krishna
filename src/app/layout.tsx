@@ -18,8 +18,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Creative Portfolio | Visual & Brand Designer",
-  description: "Portfolio of a Visual and Brand Designer specializing in Logo, Identity, and UI/UX.",
+  title: "Tharun Krishna C U | Visual & Brand Designer",
+  description: "Portfolio of a Visual and Brand Designer specializing in Digital Design, Identity, and UI/UX.",
 };
 
 export default function RootLayout({
@@ -35,10 +35,11 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
-          {/* <ThemeToggle /> */}
+          {/* ThemeToggle removed as per request for dark mode only */}
           <SmoothScrolling>
             <Header />
             {children}

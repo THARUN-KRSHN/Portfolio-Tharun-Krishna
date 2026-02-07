@@ -70,7 +70,7 @@ export const DesignWorks = ({ categories = ["poster", "brochure"] }: { categorie
 
     // --- STANDARD GRID / BENTO FALLBACK (Brochures, Social, Mixed) ---
     return (
-        <section className="bg-background py-24 px-6 md:px-20">
+        <section id="design-works" className="bg-background py-24 px-6 md:px-20">
             {/* Render Bento for Posters if mixed mode */}
             {!isHorizontalMode && posters.length > 0 && (
                 <div className="mb-20">

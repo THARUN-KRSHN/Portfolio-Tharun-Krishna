@@ -134,18 +134,18 @@ export const portfolioData: Project[] = [
     // --- Brochures ---
     {
         id: "brochure-front",
-        title: "Corporate Brochure - Front",
+        title: "BeachHack Season 7 - Front",
         category: "brochure",
         tags: ["Print", "Editorial"],
-        year: "2024",
+        year: "2026",
         thumbnail: "/images/front.png"
     },
     {
         id: "brochure-back",
-        title: "Corporate Brochure - Back",
+        title: "BeachHack Season 7 - Back",
         category: "brochure",
         tags: ["Print", "Editorial"],
-        year: "2024",
+        year: "2026",
         thumbnail: "/images/back.png"
     },
     {
@@ -153,24 +153,24 @@ export const portfolioData: Project[] = [
         title: "Christmas Card",
         category: "brochure",
         tags: ["Holiday", "Print"],
-        year: "2023",
+        year: "2025",
         thumbnail: "/images/Christmas Card.png"
     },
     // Theme DS as Brochure/Documentation
     {
         id: "theme-ds-1",
-        title: "Theme DS - System",
+        title: "Theme DS - Model 1",
         category: "brochure",
         tags: ["Design System", "Manual"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/Theme DS/1.png"
     },
     {
         id: "theme-ds-2",
-        title: "Theme DS - Components",
+        title: "Theme DS - Model 2",
         category: "brochure",
         tags: ["Design System", "Manual"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/Theme DS/2.png"
     },
 
@@ -180,7 +180,7 @@ export const portfolioData: Project[] = [
         title: "Eid Mubarak",
         category: "social",
         tags: ["Festival", "Social"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/Eid Mubarak.png"
     },
     {
@@ -188,7 +188,7 @@ export const portfolioData: Project[] = [
         title: "Happy Onam",
         category: "social",
         tags: ["Festival", "Social"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/HAPPY ONAM (3).png"
     },
     {
@@ -196,7 +196,7 @@ export const portfolioData: Project[] = [
         title: "Minnal Murali Fan Art",
         category: "social",
         tags: ["Movie", "Illustration"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/MINNAL MURALI.png"
     },
     {
@@ -212,7 +212,7 @@ export const portfolioData: Project[] = [
         title: "GASCO",
         category: "social",
         tags: ["Corporate", "Announcement"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/GASCO (1).png"
     },
     {
@@ -220,7 +220,7 @@ export const portfolioData: Project[] = [
         title: "HackForChrist",
         category: "social",
         tags: ["Hackathon", "Tech"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/HackForChrist.png"
     },
     {
@@ -228,7 +228,7 @@ export const portfolioData: Project[] = [
         title: "Industrial Visit - UST",
         category: "social",
         tags: ["Event", "Tech"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/IV UST (1).png"
     },
     {
@@ -236,7 +236,7 @@ export const portfolioData: Project[] = [
         title: "May 1st",
         category: "social",
         tags: ["Day", "Poster"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/MAY 01.png"
     },
     {
@@ -244,7 +244,7 @@ export const portfolioData: Project[] = [
         title: "Ponnonam Pixels",
         category: "social",
         tags: ["Event", "Contest"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/PONNONAM PIXELS (6).png"
     },
     {
@@ -252,7 +252,7 @@ export const portfolioData: Project[] = [
         title: "Star Making",
         category: "social",
         tags: ["Event", "Christmas"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/star making  (1).png"
     },
     {
@@ -260,7 +260,7 @@ export const portfolioData: Project[] = [
         title: "Haritham Campaign 1",
         category: "social",
         tags: ["Eco", "Campaign"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/haritham/2.png"
     },
     {
@@ -268,16 +268,16 @@ export const portfolioData: Project[] = [
         title: "Haritham Campaign 2",
         category: "social",
         tags: ["Eco", "Campaign"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/haritham/3.png"
     },
     // Stories (16:9)
     {
         id: "10-years-of",
-        title: "10 Years Celebration",
+        title: "Premam Fan Art",
         category: "social",
         tags: ["Story", "Anniversary"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/10 YEARS OF.png"
     },
     {
@@ -285,7 +285,7 @@ export const portfolioData: Project[] = [
         title: "Industrial Visit Story",
         category: "social",
         tags: ["Story", "Event"],
-        year: "2024",
+        year: "2025",
         thumbnail: "/images/INDUSTRIAL VISIT.png"
     },
 
@@ -335,7 +335,7 @@ export const portfolioData: Project[] = [
         category: "dev",
         tags: ["AI", "Security", "Frontend"],
         year: "2025",
-        thumbnail: "https://placehold.co/800x450/0f172a/94a3b8?text=CopyScale+Preview",
+        thumbnail: "/images/copyscale.jpeg",
         color: "bg-violet-900",
         description: "AI-based movie leak detection platform."
     },
@@ -345,7 +345,7 @@ export const portfolioData: Project[] = [
         category: "dev",
         tags: ["Java", "Desktop App"],
         year: "2025",
-        thumbnail: "https://placehold.co/800x450/1e293b/94a3b8?text=UAAT+MVP",
+        thumbnail: "/images/uaat.png",
         color: "bg-slate-700",
         description: "Automated question paper generation."
     },
@@ -355,7 +355,7 @@ export const portfolioData: Project[] = [
         category: "dev",
         tags: ["Inclusive", "Learning", "Frontend"],
         year: "2025",
-        thumbnail: "https://placehold.co/800x450/064e3b/6ee7b7?text=NeuroPaths",
+        thumbnail: "/images/neuropaths.png",
         color: "bg-emerald-800",
         description: "Learning platform for disabilities."
     },
@@ -365,7 +365,7 @@ export const portfolioData: Project[] = [
         category: "dev",
         tags: ["Robotics", "QGroundControl"],
         year: "Ongoing",
-        thumbnail: "https://placehold.co/800x450/172554/93c5fd?text=Rover+System",
+        thumbnail: "/images/underwater.png",
         color: "bg-blue-900",
         description: "Custom control dashboard for ROV."
     },
@@ -375,7 +375,7 @@ export const portfolioData: Project[] = [
         category: "dev",
         tags: ["Python", "OpenCV", "Flask"],
         year: "2025",
-        thumbnail: "https://placehold.co/800x450/7c2d12/fdba74?text=Traffic+System",
+        thumbnail: "/images/traffic.png",
         color: "bg-orange-800",
         description: "Real-time traffic analytics."
     },

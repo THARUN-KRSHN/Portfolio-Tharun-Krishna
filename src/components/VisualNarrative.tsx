@@ -62,17 +62,17 @@ export const VisualNarrative = () => {
                             A curated collection of impactful designs, editorial graphics, and visual storytelling experiments.
                         </p>
 
-                        <div className="mt-8 md:mt-12 flex items-center gap-4 group cursor-pointer w-fit">
+                        <a href="#design-works" className="mt-8 md:mt-12 flex items-center gap-4 group cursor-pointer w-fit">
                             <div className="px-4 py-2 border border-white/20 rounded-full text-xs font-mono uppercase tracking-widest group-hover:bg-white group-hover:text-black transition-colors">
                                 Explore All
                             </div>
                             <ArrowUpRight className="w-5 h-5 text-white/50 group-hover:text-white group-hover:rotate-45 transition-all" />
-                        </div>
+                        </a>
                     </div>
                 </div>
 
                 {/* --- RIGHT GALLERY PANEL --- */}
-                <div className="w-full md:w-2/3 h-[60vh] md:h-full flex items-center overflow-x-auto md:overflow-hidden relative snap-x snap-mandatory">
+                <div className="w-full md:w-21/3 h-[60vh] md:h-full flex items-center overflow-x-auto md:overflow-hidden relative snap-x snap-mandatory">
                     {/* 
                          Mobile: Regular horizontal scroll with snap. 
                          Desktop: Motion value driven transform.
