@@ -1,20 +1,40 @@
+"use client";
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/Hero";
-import { ResumeSnapshot } from "@/components/ResumeSnapshot";
-import { SectionHeader } from "@/components/SectionHeader";
-import { FeaturedLogos } from "@/components/FeaturedLogos";
-import { VisualNarrative } from "@/components/VisualNarrative";
-import { DesignWorks } from "@/components/DesignWorks";
-import { Contact } from "@/components/Contact";
-import { FrontendLab } from "@/components/FrontendLab";
-import { ExperienceTimeline } from "@/components/ExperienceTimeline";
-import { AboutSection } from "@/components/AboutSection";
-import { FallingSkills } from "@/components/FallingSkills";
+import { Preloader } from "@/components/Preloader";
+import { CustomCursor } from "@/components/CustomCursor";
+
+const ResumeSnapshot = dynamic(() => import("@/components/ResumeSnapshot").then(mod => mod.ResumeSnapshot));
+const SectionHeader = dynamic(() => import("@/components/SectionHeader").then(mod => mod.SectionHeader));
+const FeaturedLogos = dynamic(() => import("@/components/FeaturedLogos").then(mod => mod.FeaturedLogos));
+const VisualNarrative = dynamic(() => import("@/components/VisualNarrative").then(mod => mod.VisualNarrative));
+const DesignWorks = dynamic(() => import("@/components/DesignWorks").then(mod => mod.DesignWorks));
+const Contact = dynamic(() => import("@/components/Contact").then(mod => mod.Contact));
+const FrontendLab = dynamic(() => import("@/components/FrontendLab").then(mod => mod.FrontendLab));
+const ExperienceTimeline = dynamic(() => import("@/components/ExperienceTimeline").then(mod => mod.ExperienceTimeline));
+const AboutSection = dynamic(() => import("@/components/AboutSection").then(mod => mod.AboutSection));
+const FallingSkills = dynamic(() => import("@/components/FallingSkills").then(mod => mod.FallingSkills));
+const ServicesBento = dynamic(() => import("@/components/ServicesBento").then(mod => mod.ServicesBento));
 
 export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
-    <main className="min-h-screen bg-background text-foreground antialiased selection:bg-accent selection:text-accent-foreground">
+    <main className="min-h-screen bg-background text-foreground antialiased selection:bg-lime-400 selection:text-black">
+      <Preloader />
+      {isMounted && <CustomCursor />}
+
       <Hero />
-      <AboutSection />
+
+      <div id="about">
+        <AboutSection />
+      </div>
+
       <FallingSkills />
 
       {/* Logo Section */}
@@ -35,10 +55,15 @@ export default function Home() {
       {/* Experience Timeline */}
       <ExperienceTimeline />
 
+      {/* Services Section */}
+      <ServicesBento />
+
       {/* Other Design Works (Brochure) & Social */}
       <DesignWorks categories={["brochure", "social"]} />
 
-      <Contact />
+      <div id="contact">
+        <Contact />
+      </div>
     </main>
   );
 }
