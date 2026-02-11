@@ -67,7 +67,7 @@ export const Header = () => {
             <div className="hidden md:flex">
                 <button
                     onClick={() => scrollToSection("contact")}
-                    className="px-6 py-2 rounded-lg border border-lime-400 text-lime-400 font-mono uppercase tracking-widest text-sm hover:bg-lime-400 hover:text-black transition-all duration-300"
+                    className="px-6 py-2 rounded-full border border-lime-400 text-lime-400 font-mono uppercase tracking-widest text-sm hover:bg-lime-400 hover:text-black transition-all duration-300"
                 >
                     Contact
                 </button>

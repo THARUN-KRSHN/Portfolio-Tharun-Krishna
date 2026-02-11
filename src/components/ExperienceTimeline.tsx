@@ -61,10 +61,10 @@ export const ExperienceTimeline = () => {
                             transition={{ duration: 0.5 }}
                             className="group"
                         >
-                            <span className="inline-block px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs font-mono mb-4 text-muted-foreground group-hover:text-emerald-500 group-hover:border-emerald-500/30 transition-colors">
+                            <span className="inline-block px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs font-mono mb-4 text-muted-foreground group-hover:text-[#ccff00] group-hover:border-emerald-500/30 transition-colors">
                                 {exp.year}
                             </span>
-                            <h3 className="text-3xl font-bold mb-2 group-hover:text-emerald-500 transition-colors duration-300">
+                            <h3 className="text-3xl font-bold mb-2 group-hover:text-[#ccff00] transition-colors duration-300">
                                 {exp.role}
                             </h3>
                             <h4 className="text-xl text-zinc-500 mb-4">{exp.org}</h4>

@@ -133,7 +133,7 @@ export const AboutSection = () => {
                     </motion.div>
 
                     <div className="mt-4 font-mono text-xs uppercase text-muted-foreground opacity-50">
-                        <p>Tharun Krishna [22]</p>
+                        <p>Tharun Krishna [19]</p>
                         <p>Kerala, India</p>
                     </div>
                 </div>
@@ -163,7 +163,7 @@ export const AboutSection = () => {
             </div>
 
             {/* --- Project Showcase Extension --- */}
-            <div className="relative z-10 w-full px-6 md:px-20 flex flex-col gap-32">
+            <div className="relative z-10 w-full px-6 md:px-20 flex flex-col gap-32 items-center">
                 {[
                     { title: "Graphic Design", type: "Poster", image: "/images/poster1.png", ratio: "aspect-[3/4]", align: "end" },
                     { title: "Development", type: "Web App", image: "/images/webapp.png", ratio: "aspect-[16/10]", align: "start" },
@@ -177,18 +177,18 @@ export const AboutSection = () => {
                         viewport={{ once: true, margin: "-10%" }}
                         className={`w-full flex ${item.align === "end" ? "justify-end" : "justify-start"}`}
                     >
-                        <div className={`relative ${item.ratio} w-full md:w-[45vw] bg-secondary group overflow-hidden`}>
+                        <div className={`relative ${item.ratio} w-full md:w-[25vw] bg-secondary group transition-all duration-500 hover:scale-125 hover:z-50 hover:shadow-2xl`}>
                             <img
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                             />
-                            <div className="absolute top-4 left-4 bg-black/80 px-3 py-1 text-xs font-mono text-primary uppercase tracking-widest backdrop-blur-sm">
+                            <div className="absolute top-4 left-4 bg-black/80 px-3 py-1 text-xs font-mono text-primary uppercase tracking-widest backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                                 {item.type}
                             </div>
                             {/* Hover Overlay Title */}
-                            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                <h3 className="font-display text-4xl text-white font-bold tracking-tighter">{item.title}</h3>
+                            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                                <h3 className="font-display text-4xl text-white font-bold tracking-tighter drop-shadow-md">{item.title}</h3>
                             </div>
                         </div>
                     </motion.div>

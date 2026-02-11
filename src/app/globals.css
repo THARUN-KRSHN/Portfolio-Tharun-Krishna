@@ -114,3 +114,8 @@ h6 {
   background-color: var(--accent);
   color: var(--accent-foreground);
 }
+
+.masked-gradient {
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
