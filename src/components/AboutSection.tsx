@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { Button } from "./ui/Button";
 
 // Background grid with random flashing lines
@@ -115,10 +116,13 @@ export const AboutSection = () => {
                         className="relative w-full aspect-[3/4] overflow-hidden bg-secondary shadow-2xl transition-all duration-700 group"
                     >
                         {/* Placeholder for user portrait */}
-                        <img
+                        <Image
                             src="/images/profile.jpeg"
                             alt="Tharun Krishna"
-                            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                            fill
+                            priority
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                         />
 
                         {/* More About Me Button Overlay */}
@@ -184,10 +188,12 @@ export const AboutSection = () => {
                             transition={{ duration: 0.5 }}
                             className={`relative ${item.ratio} w-full md:w-[25vw] bg-secondary group transition-all duration-500 hover:scale-125 hover:z-50 hover:shadow-2xl`}
                         >
-                            <img
+                            <Image
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-full object-cover transition-all duration-700"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                className="object-cover transition-all duration-700"
                             />
                             <div className="absolute top-4 left-4 bg-black/80 px-3 py-1 text-xs font-mono text-primary uppercase tracking-widest backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                                 {item.type}

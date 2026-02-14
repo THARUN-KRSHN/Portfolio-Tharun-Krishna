@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { getProjectsByCategory } from "@/data/portfolio";
 import { ArrowUpRight } from "lucide-react";
 
@@ -108,17 +109,23 @@ const NarrativeCard = ({ project, index, setActiveIndex, isMobile }: { project: 
             whileHover={{ scale: 1.02 }}
         >
             <div className="w-full h-full relative">
-                <motion.img
-                    src={project.thumbnail}
-                    alt={project.title}
+                <motion.div
                     // Mobile: Animate filter based on view. Desktop: Use CSS classes.
                     initial={isMobile ? { filter: "grayscale(100%)", opacity: 0.8 } : {}}
                     whileInView={isMobile ? { filter: "grayscale(0%)", opacity: 1 } : {}}
                     viewport={{ margin: "-20%", once: true }}
                     transition={{ duration: 0.5 }}
-                    className={`w-full h-full object-cover transition-all duration-700 ${!isMobile ? "grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100" : ""
+                    className={`w-full h-full relative transition-all duration-700 ${!isMobile ? "grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100" : ""
                         }`}
-                />
+                >
+                    <Image
+                        src={project.thumbnail}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 80vw, 50vw"
+                    />
+                </motion.div>
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 bg-gradient-to-t from-black via-black/80 to-transparent translate-y-0 md:translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                     <div className="mb-2 md:mb-4">
                         <span className="inline-block px-3 py-1 mb-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] md:text-xs font-mono uppercase tracking-widest">

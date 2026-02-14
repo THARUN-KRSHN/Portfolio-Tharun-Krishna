@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { ArrowUpRight, ChevronDown, Code2, Zap } from "lucide-react";
 import { getProjectsByCategory, Project } from "@/data/portfolio";
 import { Button } from "./ui/Button";
@@ -85,10 +86,12 @@ const ProjectCard = ({ project, index, isExpanded }: { project: Project; index: 
             <div className="relative group overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 shadow-2xl transition-all duration-500 hover:border-zinc-700 hover:shadow-[0_0_30px_rgba(204,255,0,0.1)]">
                 {/* Image Section */}
                 <div className="aspect-video w-full overflow-hidden bg-zinc-950 relative">
-                    <img
+                    <Image
                         src={project.thumbnail}
                         alt={project.title}
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        fill
+                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 60vw"
                     />
 
                     {/* Overlay Gradient */}

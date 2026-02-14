@@ -59,6 +59,8 @@ const VelocityScrollRow = ({ baseVelocity, items }: { baseVelocity: number; item
                         <img
                             src={project.thumbnail}
                             alt={project.title}
+                            loading="lazy"
+                            decoding="async"
                             className="h-full w-auto object-contain transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -100,7 +102,9 @@ const VerticalScrollColumn = ({ projects, direction = 1, speed = 1 }: { projects
                         <img
                             src={project.thumbnail}
                             alt={project.title}
-                            className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                             <h5 className="text-white text-xs font-bold truncate">{project.title}</h5>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useMotionValue, useTransform, PanInfo } from "framer-motion";
+import Image from "next/image";
 import { getProjectsByCategory } from "@/data/portfolio";
 
 export const FeaturedLogos = () => {
@@ -143,11 +144,15 @@ const OrbitItem = ({ project, angle, radius, parentRotation }: { project: any, a
                 {/* Logo Container */}
                 <div className="w-[300px] h-[300px] flex items-center justify-center p-8 transition-all duration-500 overflow-visible group-hover:scale-105">
                     <div className="relative w-full h-full p-6 bg-transparent rounded-3xl group-hover:bg-white/5 transition-colors duration-500">
-                        <img
-                            src={project.thumbnail}
-                            alt={project.title}
-                            className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100 drop-shadow-2xl"
-                        />
+                        <div className="relative w-full h-full">
+                            <Image
+                                src={project.thumbnail}
+                                alt={project.title}
+                                fill
+                                sizes="(max-width: 768px) 150px, 300px"
+                                className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100 drop-shadow-2xl"
+                            />
+                        </div>
                     </div>
                 </div>
 

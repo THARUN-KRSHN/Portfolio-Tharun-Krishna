@@ -59,7 +59,7 @@ export default function Home() {
       <ServicesBento />
 
       {/* Other Design Works (Brochure) & Social */}
-      <DesignWorks categories={["brochure", "social"]} />
+      <DesignWorks />
 
       <div id="contact">
         <Contact />
