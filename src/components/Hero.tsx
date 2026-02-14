@@ -42,10 +42,10 @@ export const Hero = () => {
                     className="absolute inset-0 flex flex-col items-center justify-center z-0 pointer-events-none select-none"
                 >
                     <h1 className="text-[18vw] leading-[0.8] font-black font-display text-center uppercase text-foreground opacity-10 dark:opacity-20 dark:mix-blend-difference tracking-tighter">
-                        Sites That
+                        THARUN
                     </h1>
                     <h1 className="text-[18vw] leading-[0.8] font-black font-display text-center uppercase text-foreground opacity-10 dark:opacity-20 dark:mix-blend-difference tracking-tighter">
-                        Move
+                        KRISHNA
                     </h1>
                 </motion.div>
 

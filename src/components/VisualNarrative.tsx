@@ -108,10 +108,16 @@ const NarrativeCard = ({ project, index, setActiveIndex, isMobile }: { project: 
             whileHover={{ scale: 1.02 }}
         >
             <div className="w-full h-full relative">
-                <img
+                <motion.img
                     src={project.thumbnail}
                     alt={project.title}
-                    className="w-full h-full object-cover grayscale md:grayscale group-hover:grayscale-0 transition-all duration-700 opacity-80 md:opacity-60 group-hover:opacity-100"
+                    // Mobile: Animate filter based on view. Desktop: Use CSS classes.
+                    initial={isMobile ? { filter: "grayscale(100%)", opacity: 0.8 } : {}}
+                    whileInView={isMobile ? { filter: "grayscale(0%)", opacity: 1 } : {}}
+                    viewport={{ margin: "-20%", once: true }}
+                    transition={{ duration: 0.5 }}
+                    className={`w-full h-full object-cover transition-all duration-700 ${!isMobile ? "grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100" : ""
+                        }`}
                 />
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 bg-gradient-to-t from-black via-black/80 to-transparent translate-y-0 md:translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                     <div className="mb-2 md:mb-4">

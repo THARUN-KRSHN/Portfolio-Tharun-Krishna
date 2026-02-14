@@ -74,13 +74,12 @@ const ProjectCard = ({ project, index, isExpanded }: { project: Project; index: 
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             style={{
-                top: isExpanded ? 'auto' : `${stickyTop}px`,
                 zIndex: index + 10
             }}
             className={`
                 w-full 
-                ${isExpanded ? 'relative mb-12' : 'md:sticky relative mb-24 md:mb-[40vh]'} 
-                last:md:mb-0
+                ${isExpanded ? 'relative mb-12' : 'sticky top-24 md:top-[150px] mb-[30vh] md:mb-[40vh]'} 
+                last:mb-0
             `}
         >
             <div className="relative group overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 shadow-2xl transition-all duration-500 hover:border-zinc-700 hover:shadow-[0_0_30px_rgba(204,255,0,0.1)]">
@@ -120,9 +119,14 @@ const ProjectCard = ({ project, index, isExpanded }: { project: Project; index: 
                                     </span>
                                 ))}
                             </div>
-                            <h3 className="text-3xl md:text-4xl font-display text-white mb-2 group-hover:text-[#ccff00] transition-colors">
+                            <motion.h3
+                                whileInView={{ color: "#ccff00" }}
+                                viewport={{ margin: "-10%", once: true }}
+                                transition={{ duration: 0.3 }}
+                                className="text-3xl md:text-4xl font-display text-white mb-2 group-hover:text-[#ccff00] transition-colors"
+                            >
                                 {project.title}
-                            </h3>
+                            </motion.h3>
                         </div>
                         <div className="text-zinc-600 font-mono text-xl md:text-2xl font-bold opacity-30">
                             {String(index + 1).padStart(2, '0')}

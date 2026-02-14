@@ -25,23 +25,24 @@ const VelocityScrollRow = ({ baseVelocity, items }: { baseVelocity: number; item
     const smoothVelocity = useSpring(scrollVelocity, { damping: 50, stiffness: 400 });
     const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], { clamp: false });
 
+    // Direction tracking for scroll-based reversal
+    const directionFactor = useRef<number>(1);
+
     // Wrap for infinite loop effect
     const x = useTransform(baseX, (v) => `${wrap(0, -50, v)}%`);
 
     useAnimationFrame((t, delta) => {
-        const velocity = velocityFactor.get();
-        // Pause when not scrolling
-        if (Math.abs(velocity) < 0.05) return;
-
         let moveBy = baseVelocity * (delta / 1000);
 
-        // Apply scroll direction
-        if (velocity < 0) {
-            moveBy = -moveBy;
+        // Update direction based on scroll velocity
+        if (velocityFactor.get() < 0) {
+            directionFactor.current = -1;
+        } else if (velocityFactor.get() > 0) {
+            directionFactor.current = 1;
         }
 
-        // Use the magnitude of scroll velocity to drive speed
-        moveBy = moveBy * Math.abs(velocity);
+        // Apply velocity boost to the movement
+        moveBy += directionFactor.current * moveBy * Math.abs(velocityFactor.get());
 
         baseX.set(baseX.get() + moveBy);
     });

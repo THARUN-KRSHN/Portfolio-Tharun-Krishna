@@ -108,11 +108,11 @@ export const AboutSection = () => {
                 {/* --- Left Column: Portrait --- */}
                 <div className="md:col-span-4 order-2 md:order-1 relative">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, scale: 0.9, filter: "grayscale(100%)" }}
+                        whileInView={{ opacity: 1, scale: 1, filter: "grayscale(0%)" }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="relative w-full aspect-[3/4] overflow-hidden bg-secondary shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 group"
+                        viewport={{ once: true, margin: "-10%" }}
+                        className="relative w-full aspect-[3/4] overflow-hidden bg-secondary shadow-2xl transition-all duration-700 group"
                     >
                         {/* Placeholder for user portrait */}
                         <img
@@ -177,11 +177,17 @@ export const AboutSection = () => {
                         viewport={{ once: true, margin: "-10%" }}
                         className={`w-full flex ${item.align === "end" ? "justify-end" : "justify-start"}`}
                     >
-                        <div className={`relative ${item.ratio} w-full md:w-[25vw] bg-secondary group transition-all duration-500 hover:scale-125 hover:z-50 hover:shadow-2xl`}>
+                        <motion.div
+                            initial={{ filter: "grayscale(100%)" }}
+                            whileInView={{ filter: "grayscale(0%)" }}
+                            viewport={{ margin: "-20%" }}
+                            transition={{ duration: 0.5 }}
+                            className={`relative ${item.ratio} w-full md:w-[25vw] bg-secondary group transition-all duration-500 hover:scale-125 hover:z-50 hover:shadow-2xl`}
+                        >
                             <img
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                className="w-full h-full object-cover transition-all duration-700"
                             />
                             <div className="absolute top-4 left-4 bg-black/80 px-3 py-1 text-xs font-mono text-primary uppercase tracking-widest backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                                 {item.type}
@@ -190,20 +196,20 @@ export const AboutSection = () => {
                             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                                 <h3 className="font-display text-4xl text-white font-bold tracking-tighter drop-shadow-md">{item.title}</h3>
                             </div>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 ))}
             </div>
 
             {/* --- Show All Button --- */}
             <div className="relative z-10 w-full flex justify-center py-32">
-                <div className="group relative cursor-pointer">
+                <a href="#visual-narrative-section" className="group relative cursor-pointer">
                     <h2 className="text-8xl md:text[10vw] font-black font-display uppercase tracking-[-0.05em] text-foreground transition-transform duration-300 md:group-hover:skew-x-12">
                         Show All
                         <sup className="text-2xl md:text-4xl ml-2 border border-foreground rounded-full h-12 w-12 inline-flex items-center justify-center pb-1">®</sup>
                     </h2>
                     <div className="w-full h-1 bg-foreground transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left mt-2" />
-                </div>
+                </a>
             </div>
         </section>
     );
