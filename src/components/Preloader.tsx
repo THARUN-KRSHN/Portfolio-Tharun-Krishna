@@ -34,12 +34,7 @@ export const Preloader = () => {
                         </motion.h1>
 
                         {/* Typing / Slanting Effect for Name */}
-                        <motion.div
-                            className="absolute -inset-4 bg-primary/20 blur-2xl rounded-full"
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                        />
+
                     </div>
 
                     <motion.div
