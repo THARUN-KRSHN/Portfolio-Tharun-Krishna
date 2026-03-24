@@ -10,7 +10,7 @@ const experiences = [
         desc: "Driving innovation and entrepreneurship initiatives. coordinating large-scale technical events."
     },
     {
-        year: "2024 - Present",
+        year: "2025 - 2026",
         role: "Core Member & Tech Lead",
         org: "Beach Hack Season 7",
         desc: "Leading technical execution for one of the largest beach hackathons. Designed brand identity and web assets."
@@ -28,7 +28,7 @@ const experiences = [
         desc: "Led the control system interface design using QGroundControl and custom Python dashboards."
     },
     {
-        year: "2023 - 2024",
+        year: "2025 - 2026",
         role: "Event Coordinator",
         org: "Techletics / Evolv",
         desc: "Managed logistics and scheduling for college-level technical fests and workshops."

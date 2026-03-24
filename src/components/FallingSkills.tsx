@@ -11,7 +11,7 @@ const categories = [
             "Python", "Java", "C", "C++", "JavaScript",
             "HTML", "CSS", "React", "Next.js", "Tailwind CSS",
             "Django", "QML", "Git", "GitHub", "Figma",
-            "Adobe Photoshop", "Canva", "MS Office", "Framer",
+            "Adobe Photoshop", "Canva", "Framer",
             "Arduino UNO", "ESP32 (IoT)"
         ]
     },
@@ -21,8 +21,7 @@ const categories = [
         items: [
             "Frontend Dev", "Designing", "Graphic Design",
             "UI/UX Design", "Full Stack", "Website Testing",
-            "Version Control", "Documentation", "Prototyping",
-            "Wireframing", "User Research", "Accessibility"
+            "Documentation", "Prototyping"
         ]
     },
     {
@@ -30,8 +29,7 @@ const categories = [
         label: "Leadership",
         items: [
             "Team Management", "Leadership", "Event Coord",
-            "Operations", "Mentorship", "Public Speaking",
-            "Agile Scrum", "Strategy", "Client Relations"
+            "Operations", "Mentorship", "Public Speaking"
         ]
     }
 ];
@@ -101,8 +99,8 @@ export const FallingSkills = () => {
                                 key={cat.id}
                                 onClick={() => setActiveTab(cat.id)}
                                 className={`px-4 py-2 rounded-full font-mono text-xs uppercase tracking-widest transition-all duration-300 border ${activeTab === cat.id
-                                        ? "bg-primary text-black border-primary"
-                                        : "bg-transparent text-muted-foreground border-white/10 hover:border-white/50"
+                                    ? "bg-primary text-black border-primary"
+                                    : "bg-transparent text-muted-foreground border-white/10 hover:border-white/50"
                                     }`}
                             >
                                 {cat.label}
