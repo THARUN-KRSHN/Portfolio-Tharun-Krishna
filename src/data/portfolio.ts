@@ -320,6 +320,36 @@ export const portfolioData: Project[] = [
     },
     // --- Development / Projects ---
     {
+        id: "TRNDO AI",
+        title: "TRNDO AI",
+        category: "dev",
+        tags: ["Frontend", "Design", "SaaS", "UI/UX"],
+        year: "2026",
+        thumbnail: "/images/trndo.png",
+        color: "bg-orange-500",
+        description: "A Geo-fenced ecosystem designed to beat the late-mover penalty."
+    },
+    {
+        id: "smart-inventory",
+        title: "Smart Inventory",
+        category: "dev",
+        tags: ["Frontend", "Backend", "Project", "Design"],
+        year: "2026",
+        thumbnail: "/images/smartinv.png",
+        color: "bg-orange-500",
+        description: "Redefining inventory management for the modern world. Automate, track, and significantly grow your business today."
+    },
+    {
+        id: "excom-unfiltered",
+        title: "Excom Unfiltered",
+        category: "dev",
+        tags: ["Frontend", "Backend", "Confession", "Design"],
+        year: "2026",
+        thumbnail: "/images/excomun.png",
+        color: "bg-orange-500",
+        description: "A purely anonymous space to share appreciation, memes, and feedback for the IEDC Excom 2025-26"
+    },
+    {
         id: "sahayak",
         title: "Sahayak Portal",
         category: "dev",

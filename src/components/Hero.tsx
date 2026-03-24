@@ -62,7 +62,7 @@ export const Hero = () => {
                         {/* Screen Content - Demo Video */}
                         {/* Screen Content - Demo Video */}
                         <video
-                            src="/images/ui_demo.mp4"
+                            src="/images/TRNDO AI DEMO.mp4"
                             autoPlay
                             loop
                             muted
